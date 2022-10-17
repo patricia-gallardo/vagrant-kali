@@ -66,6 +66,42 @@ CHECK IF
 VIEW > AUTO RESIZE GUEST DISPLAY
 IS ENABLED
 
+## Manual Process (If the above didn't work)
+
+~~~bash
+vagrant halt
+~~~
+
+In VirtualBox > Storage > Add Optical Drive
+
+Select: VBoxGuestAdditions.iso
+
+Select it in the list, in "Optical Drive" dropdown choose "IDE Secondary device"
+
+~~~bash
+vagrant up
+vagrant ssh
+~~~
+
+In Kali
+~~~
+sudo adduser <user>
+sudo adduser <user> sudo
+~~~
+
+Log in as user in Kali window
+Double click on drive on desktop
+
+See that View > Auto-resize Guest Display is enabled
+
+~~~bash
+vagrant halt
+vagrant up
+~~~
+
+Log in as user in Kali window
+Check that View > Auto-resize Guest Display is enabled
+
 ## Install packages and add user
 
 ~~~bash
@@ -81,6 +117,10 @@ In Kali
 ~~~
 cd /tmp
 sudo bash setup.sh
+~~~
+
+If you haven't added user above
+~~~
 sudo adduser <user>
 sudo adduser <user> sudo
 ~~~
