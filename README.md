@@ -6,9 +6,6 @@ Perhaps this is better than mine: https://github.com/stevemcilwain/Disposable-Ka
 
 ~~~bash
 vagrant plugin uninstall vagrant-vbguest
-~~~
-
-~~~bash
 vagrant halt
 vagrant destroy -f
 rm -rf .vagrant/
@@ -18,29 +15,18 @@ rm -rf .vagrant/
 
 ~~~bash
 vagrant up
-vagrant ssh
-~~~
-
-In Kali
-~~~
-sudo apt update
-sudo apt upgrade
-sudo apt autoremove
-~~~
-
-~~~bash
+vagrant plugin install vagrant-scp
+vagrant scp update_kali.sh :/tmp/
+vagrant ssh --command "cd /tmp && sudo bash update_kali.sh"
 vagrant halt
-vagrant up
-vagrant ssh
 ~~~
 
-In Kali
-~~~
-sudo apt install -y build-essential dkms bzip2 tar linux-headers-`uname -r`
-sudo apt install -y --reinstall virtualbox-guest-x11
-~~~
+## Prep VBox
 
 ~~~bash
+vagrant up
+vagrant scp prep_vbox.sh :/tmp/
+vagrant ssh --command "cd /tmp && sudo bash prep_vbox.sh"
 vagrant halt
 ~~~
 
@@ -53,74 +39,27 @@ sudo apt install virtualbox-guest-additions-iso
 ~~~bash
 vagrant plugin install vagrant-vbguest
 vagrant up
-~~~
-
-## Restart
-
-~~~bash
-vagrant halt
-vagrant up
-~~~
-
-CHECK IF
-VIEW > AUTO RESIZE GUEST DISPLAY
-IS ENABLED
-
-## Manual Process (If the above didn't work)
-
-~~~bash
 vagrant halt
 ~~~
 
-In VirtualBox > Storage > Add Optical Drive
-
-Select: VBoxGuestAdditions.iso
-
-Select it in the list, in "Optical Drive" dropdown choose "IDE Secondary device"
+## Add a user (patricia below)
 
 ~~~bash
 vagrant up
-vagrant ssh
+vagrant ssh --command "sudo adduser patricia"
 ~~~
-
-In Kali
-~~~
-sudo adduser <user>
-sudo adduser <user> sudo
-~~~
-
-Log in as user in Kali window
-Double click on drive on desktop
-
-See that View > Auto-resize Guest Display is enabled
 
 ~~~bash
-vagrant halt
-vagrant up
+vagrant ssh --command "sudo adduser patricia sudo"
 ~~~
 
-Log in as user in Kali window
-Check that View > Auto-resize Guest Display is enabled
-
-## Install packages and add user
+## Install packages
 
 ~~~bash
-vagrant plugin install vagrant-scp
 vagrant scp setup.sh :/tmp/
+vagrant ssh --command "cd /tmp && sudo bash setup.sh"
 ~~~
 
-~~~bash
-vagrant ssh
-~~~
+## Test
 
-In Kali
-~~~
-cd /tmp
-sudo bash setup.sh
-~~~
-
-If you haven't added user above
-~~~
-sudo adduser <user>
-sudo adduser <user> sudo
-~~~
+Log in as the user in the Kali window and make sure View > Auto-resize Guest Display is enabled
