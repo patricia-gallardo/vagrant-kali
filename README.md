@@ -23,6 +23,8 @@ In Kali
 ~~~
 sudo apt update
 sudo apt upgrade
+sudo apt install -y build-essential dkms bzip2 tar linux-headers-*
+sudo apt install -y --reinstall virtualbox-guest-x11
 sudo apt autoremove
 ~~~
 
