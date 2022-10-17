@@ -84,3 +84,94 @@ Going on, assuming VBoxService is correct...
     default: /vagrant => /home/patricia-gallardo/Code/vagrant-kali
 ==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
 ==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+On Kali:
+
+┌──(vagrant㉿Kali)-[~]
+└─$ systemctl status vboxadd-service.service
+× vboxadd-service.service
+     Loaded: loaded (/opt/VBoxGuestAdditions-6.1.38/init/vboxadd-service; enabled; preset: disabled)
+     Active: failed (Result: exit-code) since Mon 2022-10-17 13:58:23 EDT; 4min 32s ago
+    Process: 11398 ExecStart=/opt/VBoxGuestAdditions-6.1.38/init/vboxadd-service start (code=exited, status=1/FAILURE)
+        CPU: 10ms
+
+Oct 17 13:58:23 Kali systemd[1]: Starting vboxadd-service.service...
+Oct 17 13:58:23 Kali vboxadd-service[11398]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:23 Kali vboxadd-service.sh[11401]: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:23 Kali vboxadd-service.sh[11405]: VirtualBox Guest Addition service started.
+Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+Oct 17 13:58:23 Kali systemd[1]: Failed to start vboxadd-service.service.
+
+┌──(vagrant㉿Kali)-[~]
+└─$ journalctl -xeu vboxadd-service.service > logfile.log
+
+┌──(vagrant㉿Kali)-[~]
+└─$ cat logfile.log
+Oct 17 13:58:20 Kali systemd[1]: Starting vboxadd-service.service...
+░░ Subject: A start job for unit vboxadd-service.service has begun execution
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ A start job for unit vboxadd-service.service has begun execution.
+░░
+░░ The job identifier is 766.
+Oct 17 13:58:20 Kali vboxadd-service[11262]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:20 Kali vboxadd-service.sh[11265]: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:20 Kali vboxadd-service.sh[11269]: VirtualBox Guest Addition service started.
+Oct 17 13:58:20 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+░░ Subject: Unit process exited
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ An ExecStart= process belonging to unit vboxadd-service.service has exited.
+░░
+░░ The process' exit code is 'exited' and its exit status is 1.
+Oct 17 13:58:20 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ The unit vboxadd-service.service has entered the 'failed' state with result 'exit-code'.
+Oct 17 13:58:20 Kali systemd[1]: Failed to start vboxadd-service.service.
+░░ Subject: A start job for unit vboxadd-service.service has failed
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ A start job for unit vboxadd-service.service has finished with a failure.
+░░
+░░ The job identifier is 766 and the job result is failed.
+Oct 17 13:58:23 Kali systemd[1]: Starting vboxadd-service.service...
+░░ Subject: A start job for unit vboxadd-service.service has begun execution
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ A start job for unit vboxadd-service.service has begun execution.
+░░
+░░ The job identifier is 919.
+Oct 17 13:58:23 Kali vboxadd-service[11398]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:23 Kali vboxadd-service.sh[11401]: Starting VirtualBox Guest Addition service.
+Oct 17 13:58:23 Kali vboxadd-service.sh[11405]: VirtualBox Guest Addition service started.
+Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+░░ Subject: Unit process exited
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ An ExecStart= process belonging to unit vboxadd-service.service has exited.
+░░
+░░ The process' exit code is 'exited' and its exit status is 1.
+Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ The unit vboxadd-service.service has entered the 'failed' state with result 'exit-code'.
+Oct 17 13:58:23 Kali systemd[1]: Failed to start vboxadd-service.service.
+░░ Subject: A start job for unit vboxadd-service.service has failed
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ A start job for unit vboxadd-service.service has finished with a failure.
+░░
+░░ The job identifier is 919 and the job result is failed.
+
