@@ -16,7 +16,7 @@ rm -rf .vagrant/
 ~~~bash
 vagrant up
 vagrant plugin install vagrant-scp
-vagrant scp update_kali.sh :/tmp/
+vagrant scp scripts/update_kali.sh :/tmp/
 vagrant ssh --command "cd /tmp && sudo bash update_kali.sh"
 vagrant halt
 ~~~
@@ -25,16 +25,18 @@ vagrant halt
 
 ~~~bash
 vagrant up
-vagrant scp prep_vbox.sh :/tmp/
+vagrant scp scripts/prep_vbox.sh :/tmp/
 vagrant ssh --command "cd /tmp && sudo bash prep_vbox.sh"
 vagrant halt
 ~~~
 
-## Install Guest Additions
+## Linux - Get VirtualBox Guest Additions
 
 ~~~bash
 sudo apt install virtualbox-guest-additions-iso
 ~~~
+
+## Install Guest Additions
 
 ~~~bash
 vagrant plugin install vagrant-vbguest
@@ -56,7 +58,7 @@ vagrant ssh --command "sudo adduser patricia sudo"
 ## Install packages
 
 ~~~bash
-vagrant scp setup.sh :/tmp/
+vagrant scp scripts/setup.sh :/tmp/
 vagrant ssh --command "cd /tmp && sudo bash setup.sh"
 ~~~
 
