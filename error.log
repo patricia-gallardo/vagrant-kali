@@ -50,8 +50,6 @@ installation.
 
 Do you wish to continue? [yes or no]
 touch: cannot touch '/var/lib/VBoxGuestAdditions/skip-5.19.0-kali2-amd64': No such file or directory
-touch: cannot touch '/var/lib/VBoxGuestAdditions/skip-5.19.0-kali2-cloud-amd64': No such file or directory
-touch: cannot touch '/var/lib/VBoxGuestAdditions/skip-5.19.0-kali2-rt-amd64': No such file or directory
 Copying additional installer modules ...
 Installing additional modules ...
 VirtualBox Guest Additions: Starting.
@@ -91,35 +89,34 @@ On Kali:
 └─$ systemctl status vboxadd-service.service
 × vboxadd-service.service
      Loaded: loaded (/opt/VBoxGuestAdditions-6.1.38/init/vboxadd-service; enabled; preset: disabled)
-     Active: failed (Result: exit-code) since Mon 2022-10-17 13:58:23 EDT; 4min 32s ago
-    Process: 11398 ExecStart=/opt/VBoxGuestAdditions-6.1.38/init/vboxadd-service start (code=exited, status=1/FAILURE)
-        CPU: 10ms
+     Active: failed (Result: exit-code) since Mon 2022-10-17 16:01:39 EDT; 5min ago
+    Process: 11445 ExecStart=/opt/VBoxGuestAdditions-6.1.38/init/vboxadd-service start (code=exited, status=1/FAILURE)
+        CPU: 11ms
 
-Oct 17 13:58:23 Kali systemd[1]: Starting vboxadd-service.service...
-Oct 17 13:58:23 Kali vboxadd-service[11398]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:23 Kali vboxadd-service.sh[11401]: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:23 Kali vboxadd-service.sh[11405]: VirtualBox Guest Addition service started.
-Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
-Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
-Oct 17 13:58:23 Kali systemd[1]: Failed to start vboxadd-service.service.
+Oct 17 16:01:39 Kali systemd[1]: Starting vboxadd-service.service...
+Oct 17 16:01:39 Kali vboxadd-service[11445]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:39 Kali vboxadd-service.sh[11448]: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:39 Kali vboxadd-service.sh[11452]: VirtualBox Guest Addition service started.
+Oct 17 16:01:39 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+Oct 17 16:01:39 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+Oct 17 16:01:39 Kali systemd[1]: Failed to start vboxadd-service.service.
 
 ┌──(vagrant㉿Kali)-[~]
 └─$ journalctl -xeu vboxadd-service.service > logfile.log
 
 ┌──(vagrant㉿Kali)-[~]
 └─$ cat logfile.log
-Oct 17 13:58:20 Kali systemd[1]: Starting vboxadd-service.service...
+Oct 17 16:01:36 Kali systemd[1]: Starting vboxadd-service.service...
 ░░ Subject: A start job for unit vboxadd-service.service has begun execution
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ A start job for unit vboxadd-service.service has begun execution.
 ░░
-░░ The job identifier is 766.
-Oct 17 13:58:20 Kali vboxadd-service[11262]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:20 Kali vboxadd-service.sh[11265]: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:20 Kali vboxadd-service.sh[11269]: VirtualBox Guest Addition service started.
-Oct 17 13:58:20 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+░░ The job identifier is 845.
+Oct 17 16:01:36 Kali vboxadd-service[11309]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:36 Kali vboxadd-service.sh[11316]: VirtualBox Guest Addition service started.
+Oct 17 16:01:36 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
 ░░ Subject: Unit process exited
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
@@ -127,32 +124,32 @@ Oct 17 13:58:20 Kali systemd[1]: vboxadd-service.service: Control process exited
 ░░ An ExecStart= process belonging to unit vboxadd-service.service has exited.
 ░░
 ░░ The process' exit code is 'exited' and its exit status is 1.
-Oct 17 13:58:20 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+Oct 17 16:01:36 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
 ░░ Subject: Unit failed
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ The unit vboxadd-service.service has entered the 'failed' state with result 'exit-code'.
-Oct 17 13:58:20 Kali systemd[1]: Failed to start vboxadd-service.service.
+Oct 17 16:01:36 Kali systemd[1]: Failed to start vboxadd-service.service.
 ░░ Subject: A start job for unit vboxadd-service.service has failed
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ A start job for unit vboxadd-service.service has finished with a failure.
 ░░
-░░ The job identifier is 766 and the job result is failed.
-Oct 17 13:58:23 Kali systemd[1]: Starting vboxadd-service.service...
+░░ The job identifier is 845 and the job result is failed.
+Oct 17 16:01:39 Kali systemd[1]: Starting vboxadd-service.service...
 ░░ Subject: A start job for unit vboxadd-service.service has begun execution
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ A start job for unit vboxadd-service.service has begun execution.
 ░░
-░░ The job identifier is 919.
-Oct 17 13:58:23 Kali vboxadd-service[11398]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:23 Kali vboxadd-service.sh[11401]: Starting VirtualBox Guest Addition service.
-Oct 17 13:58:23 Kali vboxadd-service.sh[11405]: VirtualBox Guest Addition service started.
-Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
+░░ The job identifier is 998.
+Oct 17 16:01:39 Kali vboxadd-service[11445]: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:39 Kali vboxadd-service.sh[11448]: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:39 Kali vboxadd-service.sh[11452]: VirtualBox Guest Addition service started.
+Oct 17 16:01:39 Kali systemd[1]: vboxadd-service.service: Control process exited, code=exited, status=1/FAILURE
 ░░ Subject: Unit process exited
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
@@ -160,18 +157,60 @@ Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Control process exited
 ░░ An ExecStart= process belonging to unit vboxadd-service.service has exited.
 ░░
 ░░ The process' exit code is 'exited' and its exit status is 1.
-Oct 17 13:58:23 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
+Oct 17 16:01:39 Kali systemd[1]: vboxadd-service.service: Failed with result 'exit-code'.
 ░░ Subject: Unit failed
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ The unit vboxadd-service.service has entered the 'failed' state with result 'exit-code'.
-Oct 17 13:58:23 Kali systemd[1]: Failed to start vboxadd-service.service.
+Oct 17 16:01:39 Kali systemd[1]: Failed to start vboxadd-service.service.
 ░░ Subject: A start job for unit vboxadd-service.service has failed
 ░░ Defined-By: systemd
 ░░ Support: https://www.debian.org/support
 ░░
 ░░ A start job for unit vboxadd-service.service has finished with a failure.
 ░░
-░░ The job identifier is 919 and the job result is failed.
+░░ The job identifier is 998 and the job result is failed.
+
+/var/log/messages
+
+Oct 17 16:00:39 Kali kernel: [    2.840842] vboxguest: host-version: 6.1.38r153438 0x8000000f
+Oct 17 16:00:39 Kali kernel: [    2.841493] vbg_heartbeat_init: Setting up heartbeat to trigger every 2000 milliseconds
+Oct 17 16:00:39 Kali kernel: [    2.841572] input: VirtualBox mouse integration as /devices/pci0000:00/0000:00:04.0/input/input6
+Oct 17 16:00:39 Kali kernel: [    2.859953] vboxguest: misc device minor 125, IRQ 20, I/O port d040, MMIO at 0x00000000f0400000 (size 0x0000000000400000)
+Oct 17 16:00:39 Kali kernel: [    2.861919] ACPI: AC: AC Adapter [AC] (on-line)
+Oct 17 16:00:39 Kali kernel: [    2.903031] input: PC Speaker as /devices/platform/pcspkr/input/input7
+Oct 17 16:00:39 Kali kernel: [    3.017653] RAPL PMU: API unit is 2^-32 Joules, 0 fixed counters, 10737418240 ms ovfl timer
+Oct 17 16:00:39 Kali kernel: [    3.022921] intel_pmc_core intel_pmc_core.0:  initialized
+Oct 17 16:00:39 Kali kernel: [    3.067351] Adding 998396k swap on /dev/sda5.  Priority:-2 extents:1 across:998396k FS
+Oct 17 16:00:39 Kali rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2208.0]
+Oct 17 16:00:39 Kali rsyslogd: [origin software="rsyslogd" swVersion="8.2208.0" x-pid="402" x-info="https://www.rsyslog.com"] start
+Oct 17 16:00:39 Kali kernel: [    3.268742] Service: Display SVGA X11
+Oct 17 16:00:39 Kali kernel: [    3.274656] Running service failed: VERR_NOT_AVAILABLE
+Oct 17 16:00:39 Kali kernel: [    3.285526] NET: Registered PF_QIPCRTR protocol family
+Oct 17 16:00:39 Kali kernel: [    3.338322] 20:00:39.973515 main     VBoxService 6.1.38_Debian r153438 (verbosity: 0) linux.amd64 (Sep  6 2022 20:01:06) release log
+Oct 17 16:00:39 Kali kernel: [    3.338322] 20:00:
+Oct 17 16:00:39 Kali kernel: [    3.338586] 20:00:39.974272 main     OS Product: Linux
+Oct 17 16:00:39 Kali kernel: [    3.338936] 20:00:39.974519 main     OS Release: 5.19.0-kali2-amd64
+Oct 17 16:00:39 Kali kernel: [    3.339483] 20:00:39.974873 main     OS Version: #1 SMP PREEMPT_DYNAMIC Debian 5.19.11-1kali2 (2022-10-10)
+Oct 17 16:00:39 Kali kernel: [    3.341177] 20:00:39.976322 main     Executable: /usr/sbin/VBoxService
+Oct 17 16:00:39 Kali kernel: [    3.341177] 20:00:39.976331 main     Process ID: 465
+Oct 17 16:00:39 Kali kernel: [    3.341177] 20:00:39.976331 main     Pa
+Oct 17 16:00:39 Kali kernel: [    3.342550] 20:00:39.978056 main     6.1.38_Debian r153438 started. Verbose level = 0
+Oct 17 16:00:39 Kali kernel: [    3.344240] 20:00:39.979673 main     vbglR3GuestCtrlDetectPeekGetCancelSupport: Supported (#1)
+Oct 17 16:00:40 Kali kernel: [    3.458041] RPC: Registered named UNIX socket transport module.
+Oct 17 16:00:40 Kali kernel: [    3.458046] RPC: Registered udp transport module.
+Oct 17 16:00:40 Kali kernel: [    3.458047] RPC: Registered tcp transport module.
+Oct 17 16:00:40 Kali kernel: [    3.458048] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Oct 17 16:00:42 Kali kernel: [    5.434147] e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+Oct 17 16:00:42 Kali kernel: [    5.434656] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Oct 17 16:00:46 Kali lightdm[607]: Error getting user list from org.freedesktop.Accounts: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Accounts was not provided by any .service files
+Oct 17 16:00:46 Kali lightdm[631]: Error getting user list from org.freedesktop.Accounts: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Accounts was not provided by any .service files
+Oct 17 16:00:55 Kali kernel: [   18.569206] loop: module loaded
+Oct 17 16:00:55 Kali kernel: [   18.569556] loop0: detected capacity change from 0 to 124780
+Oct 17 16:01:36 Kali vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:36 Kali vboxadd-service.sh: VirtualBox Guest Addition service started.
+Oct 17 16:01:39 Kali vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Oct 17 16:01:39 Kali vboxadd-service.sh: VirtualBox Guest Addition service started.
+Oct 17 16:01:44 Kali kernel: [   67.505689] Not activating Mandatory Access Control as /sbin/tomoyo-init does not exist.
 

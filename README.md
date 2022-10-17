@@ -1,5 +1,7 @@
 # Kali Linux Vagrant
 
+Perhaps better than this one: https://github.com/stevemcilwain/Disposable-Kali
+
 ## Clean up any previous install
 
 ~~~bash
@@ -23,9 +25,19 @@ In Kali
 ~~~
 sudo apt update
 sudo apt upgrade
-sudo apt install -y build-essential dkms bzip2 tar linux-headers-*
-sudo apt install -y --reinstall virtualbox-guest-x11
 sudo apt autoremove
+~~~
+
+~~~bash
+vagrant halt
+vagrant up
+vagrant ssh
+~~~
+
+In Kali
+~~~
+sudo apt install -y build-essential dkms bzip2 tar linux-headers-`uname -r`
+sudo apt install -y --reinstall virtualbox-guest-x11
 ~~~
 
 ~~~bash
