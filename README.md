@@ -1,6 +1,6 @@
 # Kali Linux Vagrant
 
-Perhaps better than this one: https://github.com/stevemcilwain/Disposable-Kali
+Perhaps this is better than mine: https://github.com/stevemcilwain/Disposable-Kali
 
 ## Clean up any previous install
 
