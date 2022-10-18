@@ -7,6 +7,10 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = true
   config.vm.hostname = "Kali"
 
+  if Vagrant.has_plugin?("vagrant-timezone")
+     config.timezone.value = :host
+  end
+
   config.vm.provider "virtualbox" do |vb|
      vb.gui = true
      vb.name = "Kali"
